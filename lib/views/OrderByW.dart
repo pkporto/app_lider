@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:app_lider/store/main.store.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:provider/provider.dart';
 
 class OrderBy extends StatefulWidget {
   @override
@@ -10,17 +11,10 @@ class OrderBy extends StatefulWidget {
 class _OrderByState extends State<OrderBy> {
   String dropdownValue;
 
-  MainStore _mainStore;
-
-  @override
-  void initState() {
-    _mainStore = MainStore();
-    _mainStore.listAllProducts();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
+    final mainStore = Provider.of<MainStore>(context);
+
     return Observer(builder: (_) {
       return DropdownButton<String>(
         hint: Container(
@@ -38,13 +32,13 @@ class _OrderByState extends State<OrderBy> {
         elevation: 16,
         style: TextStyle(color: Colors.red),
         onChanged: (String newValue) {
+          mainStore.orderByPrice('c');
           setState(() {
             dropdownValue = newValue;
           });
           if (newValue == "Preço") {
-            _mainStore.orderByPrice('c');
             print(
-                "${_mainStore.orderedByPrice} + ${_mainStore.products[0].price}    <<<<<<<<<<<<<<<<<");
+                "${mainStore.orderedByPrice} + ${mainStore.products[0].price}    <<<<<<<<<<<<<<<<<");
           }
         },
         onTap: () {},

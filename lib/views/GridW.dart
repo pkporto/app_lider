@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:app_lider/store/main.store.dart';
+import 'package:provider/provider.dart';
 
 class Grid extends StatefulWidget {
   @override
@@ -8,32 +9,35 @@ class Grid extends StatefulWidget {
 }
 
 class _GridState extends State<Grid> {
-  MainStore _mainStore;
-
-  @override
-  void initState() {
-    _mainStore = MainStore();
-    _mainStore.listAllProducts();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
 
     final double itemHeight = (size.height) / 2;
     final double itemWidth = size.width / 2;
+
+    final mainStore = Provider.of<MainStore>(context);
+
+    mainStore.listAllProducts();
     return Observer(
       builder: (_) {
-        final listProducts = _mainStore.products;
-        final listProductsAlter = _mainStore.products;
-        return _mainStore.products != null
-            ? Expanded(
+        return mainStore.products != null
+            ?
+            // Expanded(
+            //     child: ListView.builder(
+            //         itemCount: _mainStore.products.length,
+            //         itemBuilder: (BuildContext context, int index) {
+            //           return ListTile(
+            //             title: Text(_mainStore.products[index].title),
+            //           );
+            //         }),
+            //   )
+            Expanded(
                 child: GridView.count(
                   childAspectRatio: (itemWidth / itemHeight),
                   shrinkWrap: true,
                   crossAxisCount: 2,
-                  children: List.generate(_mainStore.products.length, (index) {
+                  children: List.generate(mainStore.products.length, (index) {
                     // print(" view ${listProducts[index].price}");
 
                     return Container(
@@ -45,16 +49,16 @@ class _GridState extends State<Grid> {
                         children: [
                           Image(
                             image:
-                                NetworkImage(_mainStore.products[index].image),
+                                NetworkImage(mainStore.products[index].image),
                             height: 100.0,
                             width: 100.0,
                           ),
                           SizedBox(),
-                          Text(_mainStore.products[index].title),
+                          Text(mainStore.products[index].title),
                           // Expanded(child: Text(listProducts[index].title)),
                           SizedBox(),
                           Text(
-                            "R\$ ${listProducts[index].price.toString()}",
+                            "R\$ ${mainStore.products[index].price.toString()}",
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ],

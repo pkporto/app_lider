@@ -32,14 +32,8 @@ abstract class _MainStore with Store {
 
   @action
   orderByPrice(String c) {
-    orderedByPrice = products;
     Comparator<Products> priceComparator = (a, b) => a.price.compareTo(b.price);
+
     products.sort(priceComparator);
-    products = null;
-    print(" order by >>> ${products[0].price}");
-    // products = (List.from(products.sort(priceComparator)));/
-    // orderedByPrice =
-    // productsFilterCategory = ObservableList<Products>.of(
-    //     await _externalRepository.getProductsFilteredByCategory());
   }
 }
