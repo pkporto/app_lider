@@ -17,6 +17,8 @@ abstract class _MainStore with Store {
   @observable
   ObservableList<Products> products;
 
+  List<Products> productsList = List<Products>();
+
   @observable
   var productsFilterCategory = ObservableList<Products>();
 
@@ -27,7 +29,7 @@ abstract class _MainStore with Store {
   listAllProducts() async {
     products =
         ObservableList<Products>.of(await _externalRepository.getProducts());
-    print(" list all >>> ${products[0].price}");
+    productsList = await _externalRepository.getProducts();
   }
 
   @action
@@ -47,6 +49,8 @@ abstract class _MainStore with Store {
   @action
   listCategorie(String c) {
     print("elementos  antes >>${products.length}");
+
+    products = ObservableList<Products>.of(productsList);
 
     var listRemove = [];
     products.forEach((element) {

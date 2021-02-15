@@ -27,7 +27,7 @@ class _OrderByState extends State<OrderBy> {
         ),
         value: dropdownValue,
         dropdownColor: Colors.white,
-        icon: Icon(Icons.arrow_downward_outlined),
+        icon: Icon(Icons.expand_more),
         iconSize: 28,
         elevation: 16,
         style: TextStyle(color: Colors.red),
