@@ -32,17 +32,18 @@ class _OrderByState extends State<OrderBy> {
         elevation: 16,
         style: TextStyle(color: Colors.red),
         onChanged: (String newValue) {
-          mainStore.orderByPrice('c');
           setState(() {
             dropdownValue = newValue;
           });
-          if (newValue == "Preço") {
-            print(
-                "${mainStore.orderedByPrice} + ${mainStore.products[0].price}    <<<<<<<<<<<<<<<<<");
+
+          if (newValue == 'Preço crescente') {
+            mainStore.orderByPriceAsc();
+          } else {
+            mainStore.orderByPriceDesc();
           }
         },
         onTap: () {},
-        items: <String>['Nome', 'Preço', 'Categoria']
+        items: <String>['Preço crescente', 'Preço decrescente']
             .map<DropdownMenuItem<String>>((String value) {
           return DropdownMenuItem<String>(
             value: value,

@@ -31,9 +31,30 @@ abstract class _MainStore with Store {
   }
 
   @action
-  orderByPrice(String c) {
+  orderByPriceAsc() {
     Comparator<Products> priceComparator = (a, b) => a.price.compareTo(b.price);
 
     products.sort(priceComparator);
+  }
+
+  @action
+  orderByPriceDesc() {
+    Comparator<Products> priceComparator = (b, a) => b.price.compareTo(a.price);
+
+    products.sort(priceComparator);
+  }
+
+  @action
+  listCategorie(String c) {
+    print("elementos  antes >>${products.length}");
+
+    var listRemove = [];
+    products.forEach((element) {
+      if (element.category != c) {
+        listRemove.add(element);
+      }
+    });
+    products.removeWhere((element) => listRemove.contains(element));
+    print("elementos dpois ${products.length}");
   }
 }

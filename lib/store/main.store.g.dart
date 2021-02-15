@@ -73,10 +73,30 @@ mixin _$MainStore on _MainStore, Store {
   final _$_MainStoreActionController = ActionController(name: '_MainStore');
 
   @override
-  dynamic orderByPrice(String c) {
+  dynamic orderByPriceAsc() {
     final _$actionInfo = _$_MainStoreActionController.startAction();
     try {
-      return super.orderByPrice(c);
+      return super.orderByPriceAsc();
+    } finally {
+      _$_MainStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic orderByPriceDesc() {
+    final _$actionInfo = _$_MainStoreActionController.startAction();
+    try {
+      return super.orderByPriceDesc();
+    } finally {
+      _$_MainStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic listCategorie(String c) {
+    final _$actionInfo = _$_MainStoreActionController.startAction();
+    try {
+      return super.listCategorie(c);
     } finally {
       _$_MainStoreActionController.endAction(_$actionInfo);
     }

@@ -22,17 +22,7 @@ class _GridState extends State<Grid> {
     return Observer(
       builder: (_) {
         return mainStore.products != null
-            ?
-            // Expanded(
-            //     child: ListView.builder(
-            //         itemCount: _mainStore.products.length,
-            //         itemBuilder: (BuildContext context, int index) {
-            //           return ListTile(
-            //             title: Text(_mainStore.products[index].title),
-            //           );
-            //         }),
-            //   )
-            Expanded(
+            ? Expanded(
                 child: GridView.count(
                   childAspectRatio: (itemWidth / itemHeight),
                   shrinkWrap: true,
@@ -54,12 +44,22 @@ class _GridState extends State<Grid> {
                             width: 100.0,
                           ),
                           SizedBox(),
-                          Text(mainStore.products[index].title),
+                          Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Text(
+                              mainStore.products[index].title.toUpperCase(),
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
                           // Expanded(child: Text(listProducts[index].title)),
                           SizedBox(),
                           Text(
-                            "R\$ ${mainStore.products[index].price.toString()}",
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            " R\$ ${mainStore.products[index].price.toString()}",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20.0),
                           ),
                         ],
                       ),
@@ -67,80 +67,6 @@ class _GridState extends State<Grid> {
                   }),
                 ),
               )
-
-            // GridView.builder(
-            //     physics: ScrollPhysics(),
-            //     shrinkWrap: true,
-            //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            //       crossAxisCount: 2,
-            //       childAspectRatio: 1,
-            //     ),
-            //     itemCount: listProducts.length,
-            //     itemBuilder: (context, index) {
-            //       return ListView(
-            //         children: [
-            //           Container(
-            //             height: 90.0,
-            //             padding: EdgeInsets.all(20.0),
-            //             decoration: BoxDecoration(
-            //                 border: Border.all(color: Colors.grey, width: 0.7)),
-            //             child: Column(
-            //               mainAxisAlignment: MainAxisAlignment.center,
-            //               children: [
-            //                 Image(
-            //                   image: NetworkImage(listProducts[index].image),
-            //                   height: 100.0,
-            //                   width: 100.0,
-            //                 ),
-            //                 Divider(),
-            //                 Expanded(child: Text(listProducts[index].title)),
-            //                 Text(
-            //                   listProducts[index].price.toString(),
-            //                 ),
-            //               ],
-            //             ),
-            //           )
-            //         ],
-            //       );
-            //     })
-
-            //       // return Card(
-            //       //   child: InkWell(
-            //       //     splashColor: Colors.blue,
-            //       //     onTap: () {
-            //       //       print(listProducts[index].title);
-            //       //     },
-            //       //     child: Container(
-            //       //       child: Text(
-            //       //         listProducts[index].title,
-            //       //       ),
-            //       //     ),
-            //       //   ),
-            //       // );
-
-            // return Container(
-            //   height: 90.0,
-            //   padding: EdgeInsets.all(20.0),
-            //   decoration: BoxDecoration(
-            //       border: Border.all(color: Colors.grey, width: 0.7)),
-            //   child: Column(
-            //     mainAxisAlignment: MainAxisAlignment.center,
-            //     children: [
-            //       Image(
-            //         image: NetworkImage(listProducts[index].image),
-            //         height: 100.0,
-            //         width: 100.0,
-            //       ),
-            //       Divider(),
-            //       Expanded(child: Text(listProducts[index].title)),
-            //       Text(
-            //         listProducts[index].price.toString(),
-            //       ),
-            //     ],
-            //   ),
-            // );
-            //     },
-            //   )
             : Text('dasdas');
       },
     );

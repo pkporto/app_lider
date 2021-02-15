@@ -47,7 +47,6 @@ class ExternalRepository {
 
       // data.forEach((item) => products.add(Products.fromJson(item)));
 
-      print(products);
       return products;
     }
     return null;

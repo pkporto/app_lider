@@ -75,12 +75,8 @@ class _MainViewState extends State<MainView> {
           Row(
             children: [
               Localization(),
-              // Align(
-              //   alignment: Alignment.centerRight,
-              //   child: Categories(),
-              // )
               Spacer(),
-              Categories()
+              Categories(),
             ],
           ),
           HorizontalList(),
