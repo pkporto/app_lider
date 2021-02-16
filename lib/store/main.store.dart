@@ -41,9 +41,11 @@ abstract class _MainStore with Store {
 
   @action
   orderByPriceDesc() {
-    Comparator<Products> priceComparator = (b, a) => b.price.compareTo(a.price);
+    Comparator<Products> priceComparator = (a, b) => a.price.compareTo(b.price);
 
     products.sort(priceComparator);
+
+    products = ObservableList<Products>.of(products.reversed.toList());
   }
 
   @action
@@ -60,5 +62,11 @@ abstract class _MainStore with Store {
     });
     products.removeWhere((element) => listRemove.contains(element));
     print("elementos dpois ${products.length}");
+  }
+
+  @action
+  getByCategorie(String c) async {
+    products = ObservableList<Products>.of(
+        await _externalRepository.getProductsByCategorie(c));
   }
 }

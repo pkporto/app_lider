@@ -70,6 +70,13 @@ mixin _$MainStore on _MainStore, Store {
     return _$listAllProductsAsyncAction.run(() => super.listAllProducts());
   }
 
+  final _$getByCategorieAsyncAction = AsyncAction('getByCategorie');
+
+  @override
+  Future getByCategorie(String c) {
+    return _$getByCategorieAsyncAction.run(() => super.getByCategorie(c));
+  }
+
   final _$_MainStoreActionController = ActionController(name: '_MainStore');
 
   @override

@@ -19,10 +19,12 @@ class _CategoriesState extends State<Categories> {
     return Expanded(
       child: Container(
         width: itemWidth,
-        height: 50.0,
+        height: 60.0,
         decoration: BoxDecoration(
           color: Colors.red,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10.0),
+              bottomLeft: Radius.circular(10.0)),
         ),
         child: DropdownButton<String>(
           isExpanded: true,
@@ -46,16 +48,19 @@ class _CategoriesState extends State<Categories> {
             });
             switch (dropdownValue) {
               case 'men clothing':
-                mainStore.listCategorie(newValue);
+                mainStore.getByCategorie(newValue);
                 break;
               case 'women clothing':
-                mainStore.listCategorie(newValue);
+                mainStore.getByCategorie(newValue);
                 break;
               case 'electronics':
-                mainStore.listCategorie(newValue);
+                mainStore.getByCategorie(newValue);
                 break;
               case 'jewelery':
-                mainStore.listCategorie(newValue);
+                mainStore.getByCategorie(newValue);
+                break;
+              case 'Todos':
+                mainStore.listAllProducts();
                 break;
               default:
                 mainStore.listAllProducts();
@@ -63,6 +68,7 @@ class _CategoriesState extends State<Categories> {
           },
           onTap: () {},
           items: <String>[
+            'Todos',
             'men clothing',
             'women clothing',
             'eletronics',
