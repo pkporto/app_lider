@@ -5,32 +5,6 @@ import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 
 class ExternalRepository {
-  // Future<List<Products>> getProducts() async {
-  //   try {
-  //     List<Products> products = List();
-  //     Response response;
-  //     Dio dio = Dio();
-  //     response = await dio.get('https://api-lider.herokuapp.com/products');
-  //     // print(response.statusCode);
-  //     if (response.statusCode == 200) {
-  //       // var listProducts = (response.data as List).map((item) {
-  //       //   return Products.fromJson(item);
-  //       // }).toList();
-  //       // print(listProducts);
-  //       var data = jsonDecode(response.data.toString());
-
-  //       // data.forEach((item) => products.add(Products.fromJson(item)));
-  //       print("ieie ${data}");
-
-  //       return products;
-  //     }
-  //     return null;
-  //   } catch (error, stacktrace) {
-  //     print(" sas $stacktrace");
-  //     return null;
-  //   }
-  // }
-
   Future<List<Products>> getProducts() async {
     var response = await http.get("https://api-lider.herokuapp.com/products");
 

@@ -16,7 +16,7 @@ class Products {
 
   Products.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    title = json['title'];
+    title = json['title'].toString().toUpperCase();
     price = json['price'].toDouble();
     description = json['description'];
     category = json['category'];

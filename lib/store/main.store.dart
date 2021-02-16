@@ -50,8 +50,6 @@ abstract class _MainStore with Store {
 
   @action
   listCategorie(String c) {
-    print("elementos  antes >>${products.length}");
-
     products = ObservableList<Products>.of(productsList);
 
     var listRemove = [];
@@ -61,12 +59,24 @@ abstract class _MainStore with Store {
       }
     });
     products.removeWhere((element) => listRemove.contains(element));
-    print("elementos dpois ${products.length}");
   }
 
   @action
   getByCategorie(String c) async {
     products = ObservableList<Products>.of(
         await _externalRepository.getProductsByCategorie(c));
+  }
+
+  @action
+  getByName(String n) async {
+    products = ObservableList<Products>.of(productsList);
+    var listRemove = [];
+    print(n);
+    products.forEach((element) {
+      if (element.title.contains(n) == false) {
+        listRemove.add(element);
+      }
+    });
+    products.removeWhere((element) => listRemove.contains(element));
   }
 }

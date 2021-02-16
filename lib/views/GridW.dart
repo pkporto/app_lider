@@ -33,7 +33,7 @@ class _GridState extends State<Grid> {
                     return Container(
                       padding: EdgeInsets.all(10.0),
                       decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey, width: 0.7)),
+                          border: Border.all(color: Colors.grey, width: 0.2)),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -67,7 +67,7 @@ class _GridState extends State<Grid> {
                   }),
                 ),
               )
-            : Text('dasdas');
+            : CircularProgressIndicator();
       },
     );
   }

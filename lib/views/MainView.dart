@@ -5,6 +5,7 @@ import 'package:app_lider/views/HeaderW.dart';
 import 'package:app_lider/views/HorizontalListW.dart';
 import 'package:app_lider/views/LocalizationW.dart';
 import 'package:app_lider/views/OrderByW.dart';
+import 'package:app_lider/views/SearchW.dart';
 import 'package:flutter/material.dart';
 import 'package:app_lider/views/CustomAppBarW.dart';
 
@@ -46,32 +47,7 @@ class _MainViewState extends State<MainView> {
                   width: 25.0,
                 ))
           ]),
-          Container(
-              padding: EdgeInsets.all(5.0),
-              height: 50.0,
-              color: Colors.deepPurpleAccent[100],
-              child: Center(
-                child: Material(
-                  color: Colors.deepPurpleAccent[100],
-                  child: TextField(
-                    textAlignVertical: TextAlignVertical.center,
-                    decoration: InputDecoration(
-                        prefixIcon: IconButton(
-                          icon: Icon(
-                            Icons.close,
-                            color: Colors.white,
-                          ),
-                        ),
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            Icons.screen_search_desktop,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {},
-                        )),
-                  ),
-                ),
-              )),
+          Search(),
           Row(
             children: [
               Localization(),
