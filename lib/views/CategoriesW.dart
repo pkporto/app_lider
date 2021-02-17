@@ -28,72 +28,67 @@ class _CategoriesState extends State<Categories> {
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(10.0), bottomLeft: Radius.circular(10.0)),
       ),
-      child: Center(
-        child: Expanded(
-          child: DropdownButtonHideUnderline(
-            child: DropdownButton<String>(
-              isExpanded: true,
-              hint: Container(
-                //and here
-                child: Text(
-                  "Buscar Categorias",
-                  style: TextStyle(color: Colors.white),
-                  textAlign: TextAlign.start,
-                ),
-              ),
-              value: dropdownValue,
-              dropdownColor: Colors.red,
-              icon: Icon(Icons.menu_outlined, color: Colors.white),
-              iconSize: 28,
-              elevation: 16,
+      child: DropdownButtonHideUnderline(
+        child: DropdownButton<String>(
+          isExpanded: true,
+          hint: Container(
+            //and here
+            child: Text(
+              "Buscar Categorias",
               style: TextStyle(color: Colors.white),
-              onChanged: (String newValue) {
-                // setState(() {
-                //   dropdownValue = newValue;
-                // });
-                switch (newValue) {
-                  case 'men clothing':
-                    mainStore.getByCategorie(newValue);
-                    break;
-                  case 'women clothing':
-                    mainStore.getByCategorie(newValue);
-                    break;
-                  case 'electronics':
-                    mainStore.getByCategorie(newValue);
-                    break;
-                  case 'jewelery':
-                    mainStore.getByCategorie(newValue);
-                    break;
-                  case 'Todos':
-                    mainStore.listAllProducts();
-                    break;
-                  default:
-                    mainStore.listAllProducts();
-                }
-              },
-              onTap: () {},
-              items: <String>[
-                'Todos',
-                'men clothing',
-                'women clothing',
-                'electronics',
-                'jewelery'
-              ].map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(
-                    value,
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                );
-              }).toList(),
+              textAlign: TextAlign.start,
             ),
           ),
+          value: dropdownValue,
+          dropdownColor: Colors.red,
+          icon: Icon(Icons.menu_outlined, color: Colors.white),
+          iconSize: 28,
+          elevation: 16,
+          style: TextStyle(color: Colors.white),
+          onChanged: (String newValue) {
+            // setState(() {
+            //   dropdownValue = newValue;
+            // });
+            switch (newValue) {
+              case 'men clothing':
+                mainStore.getByCategorie(newValue);
+                break;
+              case 'women clothing':
+                mainStore.getByCategorie(newValue);
+                break;
+              case 'electronics':
+                mainStore.getByCategorie(newValue);
+                break;
+              case 'jewelery':
+                mainStore.getByCategorie(newValue);
+                break;
+              case 'Todos':
+                mainStore.listAllProducts();
+                break;
+              default:
+                mainStore.listAllProducts();
+            }
+          },
+          onTap: () {},
+          items: <String>[
+            'Todos',
+            'men clothing',
+            'women clothing',
+            'electronics',
+            'jewelery'
+          ].map<DropdownMenuItem<String>>((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(
+                value,
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            );
+          }).toList(),
         ),
       ),
     );
-    // );
   }
 }
