@@ -18,7 +18,7 @@ class _LocalizationState extends State<Localization> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "seu nome aqui",
+            "Patrick Porto",
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           Padding(

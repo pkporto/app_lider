@@ -30,7 +30,6 @@ class _HorizontalListState extends State<HorizontalList> {
                     padding: EdgeInsets.only(top: 5.0, bottom: 5.0, left: 5.0),
                     itemCount: products.length,
                     shrinkWrap: true,
-                    // This next line does the trick.
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
@@ -40,11 +39,7 @@ class _HorizontalListState extends State<HorizontalList> {
                               borderRadius: BorderRadius.circular(20),
                               color: Colors.white),
                           child: Center(
-                            child:
-                                // Text(
-                                //   products[index].title,
-                                // ),
-                                Image(
+                            child: Image(
                               image: NetworkImage(products[index].image),
                               height: 70.0,
                               width: 70.0,
@@ -54,7 +49,7 @@ class _HorizontalListState extends State<HorizontalList> {
                   ),
                 ),
               )
-            : Text('das');
+            : CircularProgressIndicator();
       },
     );
   }

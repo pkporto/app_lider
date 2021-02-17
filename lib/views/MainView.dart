@@ -23,8 +23,6 @@ class _MainViewState extends State<MainView> {
     return Scaffold(
       appBar: CustomAppBar(),
       body: Column(
-        // shrinkWrap: true,
-        // scrollDirection: Axis.vertical,
         children: [
           // Header(),
           Stack(children: [
@@ -75,7 +73,7 @@ class _MainViewState extends State<MainView> {
                       Center(
                         child: Text(
                           "VOLTAR",
-                          style: TextStyle(color: secondaryColor),
+                          style: TextStyle(color: Colors.blueAccent),
                         ),
                       ),
                     ],

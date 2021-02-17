@@ -19,7 +19,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
           Icons.menu_outlined,
           color: primaryColor,
         ),
-        onPressed: () => print('clielc'),
+        onPressed: () => print('clicked'),
         color: Colors.black,
       ),
       actions: [

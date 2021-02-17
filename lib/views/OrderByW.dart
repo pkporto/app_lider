@@ -18,7 +18,7 @@ class _OrderByState extends State<OrderBy> {
     return Observer(builder: (_) {
       return DropdownButton<String>(
         hint: Container(
-          width: 90, //and here
+          width: 90,
           child: Text(
             "Selecionar",
             style: TextStyle(color: Colors.grey),

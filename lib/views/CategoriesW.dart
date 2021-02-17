@@ -32,7 +32,6 @@ class _CategoriesState extends State<Categories> {
         child: DropdownButton<String>(
           isExpanded: true,
           hint: Container(
-            //and here
             child: Text(
               "Buscar Categorias",
               style: TextStyle(color: Colors.white),
@@ -46,9 +45,6 @@ class _CategoriesState extends State<Categories> {
           elevation: 16,
           style: TextStyle(color: Colors.white),
           onChanged: (String newValue) {
-            // setState(() {
-            //   dropdownValue = newValue;
-            // });
             switch (newValue) {
               case 'men clothing':
                 mainStore.getByCategorie(newValue);
