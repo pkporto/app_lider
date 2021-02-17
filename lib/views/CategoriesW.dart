@@ -46,17 +46,17 @@ class _CategoriesState extends State<Categories> {
           style: TextStyle(color: Colors.white),
           onChanged: (String newValue) {
             switch (newValue) {
-              case 'men clothing':
-                mainStore.getByCategorie(newValue);
+              case 'Roupas masculinas':
+                mainStore.getByCategorie('men clothing');
                 break;
-              case 'women clothing':
-                mainStore.getByCategorie(newValue);
+              case 'Roupas femininas':
+                mainStore.getByCategorie('women clothing');
                 break;
-              case 'electronics':
-                mainStore.getByCategorie(newValue);
+              case 'Eletrônicos':
+                mainStore.getByCategorie('electronics');
                 break;
-              case 'jewelery':
-                mainStore.getByCategorie(newValue);
+              case 'Jóias':
+                mainStore.getByCategorie('jewelery');
                 break;
               case 'Todos':
                 mainStore.listAllProducts();
@@ -68,10 +68,10 @@ class _CategoriesState extends State<Categories> {
           onTap: () {},
           items: <String>[
             'Todos',
-            'men clothing',
-            'women clothing',
-            'electronics',
-            'jewelery'
+            'Roupas masculinas',
+            'Roupas femininas',
+            'Eletrônicos',
+            'Jóias'
           ].map<DropdownMenuItem<String>>((String value) {
             return DropdownMenuItem<String>(
               value: value,
