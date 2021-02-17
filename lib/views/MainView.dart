@@ -55,7 +55,34 @@ class _MainViewState extends State<MainView> {
               Categories(),
             ],
           ),
-          HorizontalList(),
+          Row(
+            children: [
+              Container(
+                  height: 60.0,
+                  margin: EdgeInsets.only(right: 10.0, left: 5.0),
+                  width: 120.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.blueAccent),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.keyboard_arrow_left,
+                        color: Colors.blueAccent,
+                      ),
+                      Center(
+                        child: Text(
+                          "VOLTAR",
+                          style: TextStyle(color: secondaryColor),
+                        ),
+                      ),
+                    ],
+                  )),
+              HorizontalList()
+            ],
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
